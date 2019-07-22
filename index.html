@@ -1,62 +1,127 @@
-<!DOCTYPE html>
-<html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>StudentCard</title>
-
-
-
-      <link rel="stylesheet" href="./style.css">
-
-
-</head>
-
-<body>
-
-  <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-9">
-	<title>Student Card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
-<link rel="stylesheet" href="css/styles.css" />
-	 <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+body {
+  font-family: "Titillium Web", sans-serif;
+  color: black;
+  background-color: #AED6F1;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 2em;
+}
+
+img.center{
+  text-align: center;
+  vertical-align: middle;
+  padding-top:20px;
+}
+
+.container{
+  margin: auto;
+  width: 75%;
+  border: 3px solid #5DADE2;
+  text-align: center;
+
+}
+
+/* Container for flexboxes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create four equal columns */
+.column {
+  flex: 33.33%;
+  padding: 20px;
+}
+
+button {
+  width:130px;
+  height:50px;
+  background-color: #1976d2;
+  color:white;
+  font-size: 12pt;
+  margin: 14px;
+}
+
+#total{
+  font-size:34px;
+  padding:10px;
+  border-style: dashed;
+  border-color: black;
+  border-size: 3px;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+/* @media screen and (max-width: 992px) {
+  .column {
+    flex: 50%;
+  }
+} */
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .container{
+
+  }
+
+  img {
+    style="width:50%;"
+  }
+
+}
+</style>
 </head>
-
 <body>
-	<div class="container">
 
-    <div class="topContainer">
-	        <h2 style="float:left">University of British Columbia</h2>
-          <h2 style="float:center">Student Card</h2>
-          <img src="images/card.png">
 
-          <div class="verticalBox">
+<div class="container">
+<div class="row">
+  <div class="column" style="background-color:#e3f2fd;">
+    <h2>University of British Columbia</h2>
+    <h3>Student Card System</h3>
+  </div>
 
-            <p> Student Number: <input id="studentnumber" type="text" placeholder="8 Digits Student ID"></p>
+  <div class="column" style="background-color:#e3f2fd;">
+    <img class="center" src="images/card.png" style="width:80%;margin-top:15px;">
+  </div>
 
-            <button>Check Balance</button>
+  <div class="column" style="background-color:#e3f2fd;">
+    <h3> Student Number: <input id="studentnumber" type="text" placeholder="8 Digits Student ID"></h3>
+    <button id="balancebutton">Check Balance</button>
+          <h2 id="total">$ 0.00</h2>
+        </div>
+  </div>
 
-              <div class="currentBalance">
-                <p id="total">$ 0.00</p>
-              </div>
-          </div>
-      </div>
+<div class="row">
 
-            <p> Enter Amount $ <input id="addamt" type="text" placeholder="0.00"> you want to
-              <button>Add</button></p>
-            <p> Enter Amount $ <input id="addamt" type="text" placeholder="0.00"> you want to
-              <button>Spend</button></p>
-	</div>
+  <div class="column" style="background-color:#e3f2fd;">
+    <h3> Enter the Amount $ <input id="addamt" type="text" placeholder="0.00"> you want to
+      <button>Add</button></h3>
+    <h3> Enter the Amount $ <input id="addamt" type="text" placeholder="0.00"> you want to
+      <button>Spend</button></h3>
+  </div>
+
+
+</div>
+</div>
+
+<script type="text/javascript" src="script.js"></script>
+
+document.getElementById("balancebutton").onclick = function(){getBalance();};
+
 </body>
-
-</html>
-
-
-
-</body>
-
 </html>
