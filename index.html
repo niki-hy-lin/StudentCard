@@ -52,14 +52,22 @@ button {
   margin: 14px;
 }
 
-#total{
+.currentBalance{
   font-size:34px;
   padding:10px;
+  margin: auto;
   border-style: dashed;
   border-color: black;
   border-size: 3px;
+  background-color: #64b5f6;
+  width:150px;
+  align-items: center;
 }
 
+.currentBalance sup{
+  font-size: 24px;
+  top: -18px;
+}
 /* On screens that are 992px wide or less, go from four columns to two columns */
 /* @media screen and (max-width: 992px) {
   .column {
@@ -101,17 +109,20 @@ button {
 
   <div class="column" style="background-color:#e3f2fd;">
     <h3> Student Number: <input id="studentnumber" type="text" placeholder="8 Digits Student ID"></h3>
-    <button id="balancebutton">Check Balance</button>
-          <h2 id="total">$ 0.00</h2>
+    <button id="balanceButton">Check Balance</button>
+
+                <div class="currentBalance">
+                    <sup>$</sup><span id="balance">0.00</span>
+                </div>
         </div>
   </div>
 
 <div class="row">
 
   <div class="column" style="background-color:#e3f2fd;">
-    <h3> Enter the Amount $ <input id="addamt" type="text" placeholder="0.00"> you want to
-      <button>Add</button></h3>
-    <h3> Enter the Amount $ <input id="addamt" type="text" placeholder="0.00"> you want to
+    <h3> Enter the Amount $ <input id="amountToAdd" type="text" placeholder="0.00"> you want to
+      <button id="addButton">Add</button></h3>
+    <h3> Enter the Amount $ <input id="amountToSpend" type="text" placeholder="0.00"> you want to
       <button>Spend</button></h3>
   </div>
 
@@ -119,9 +130,42 @@ button {
 </div>
 </div>
 
-<script type="text/javascript" src="script.js"></script>
+<script>
 
-document.getElementById("balancebutton").onclick = function(){getBalance();};
+function getBalance(){
+  var balance = 0.01;
+  document.getElementById("balance").innerHTML = balance;
+}
+
+function add(){
+
+  var balance = document.getElementById("balance").value;
+  var amountToAdd = document.getElementById("amountToAdd").value;
+  var result = parseFloat(balance) + parseFloat(amountToAdd);
+  document.getElementById("balance").innerHTML = result;
+
+}
+
+function spend(){
+  var balance = document.getElementById("balance").value;
+  var amountToSpend = document.getElementById("amountToSpend").value;
+  balance = balance - amountToSpend;
+  balance = Math.round(balance * 100) / 100;
+  balance = balance.toFixed(2);
+  document.getElementById("balance").innerHTML = balance;
+
+}
+
+
+document.getElementById("balanceButton").onclick = function() { getBalance(); };
+
+document.getElementById("addButton").onclick = function() { add(); };
+
+
+
+
+
+</script>
 
 </body>
 </html>
