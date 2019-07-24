@@ -25,7 +25,7 @@ img.center{
 
 .container{
   margin: auto;
-  width: 75%;
+  width: 90%;
   border: 3px solid #5DADE2;
   text-align: center;
 
@@ -35,7 +35,6 @@ img.center{
 .row {
   display: flex;
   flex-wrap: wrap;
-
 }
 
 /* Create four equal columns */
@@ -78,10 +77,6 @@ button {
     height: auto;
   }
 
-  .container{
-
-  }
-
   img {
     style="width:50%;"
   }
@@ -100,7 +95,7 @@ button {
   </div>
 
   <div class="column" style="background-color:#e3f2fd;">
-    <img class="center" src="images/card.png" style="width:80%;margin-top:15px;">
+    <img class="center" src="images/card.png" style="margin-top:15px;">
   </div>
 
   <div class="column" style="background-color:#e3f2fd;">
@@ -114,13 +109,16 @@ button {
         </div>
   </div>
 
-<div class="row" id="addArea" style="background-color:#e3f2fd; padding-left:80px;">
+<div class="row">
+  <div class="column" id="addArea" style="background-color:#e3f2fd">
 
     <h3> Enter the Amount $ <input type="number" id="amountToAdd" value="0"> you want to
       <button id="addButton">Add</button></h3>
 </div>
+</div>
 
-<div class="row" id="spendArea" style="background-color:#e3f2fd;padding-left:80px">
+<div class="row">
+<div class="column" id="spendArea" style="background-color:#e3f2fd;">
     <h3> Enter the Amount $ <input type="number" id="amountToSpend" value="0"> you want to
       <button id="spendButton">Spend</button></h3>
   </div>
@@ -128,7 +126,7 @@ button {
 
 </div>
 
-
+</div>
 <script>
 
 /*we may need to read data from server*/
